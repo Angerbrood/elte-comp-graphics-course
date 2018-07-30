@@ -1,0 +1,14 @@
+Gyakorlat - SDL: click
+Gyakorlat - SDL Events, Images: click
+Gyakorlat - OGL szerelőszalag, shaderek
+Gyakorlat - OGL Shaders: click
+Gyakorlat - OGL Shader Mandelbrot, VAOVBO: click
+Gyakorlat - OGL Transforms Piramis: click
+Gyakorlat - OGL Transforms, ParSurf tórusz: click
+Gyakorlat - OGL Tóruszok, Textures: click
+Gyakorlat - OGL LoadTexture, Kamerakezelés: click
+Gyakorlat - OGL Lights: click
+Gyakorlat - OGL Physics: click
+Gyakorlat - OGL ImGui, Transparency, Curves: click
+Gyakorlat - OGL Catmull-Rom, FBO: click
+Konzultáció - ZH gyakrolás: click

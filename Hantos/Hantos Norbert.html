@@ -1,0 +1,650 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0046)http://people.inf.elte.hu/nhantos/grafika.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-2">
+	
+	<title>Hantos Norbert</title>
+<link rel="stylesheet" type="text/css" media="screen" href="./Hantos Norbert_files/style.css">
+</head>
+<body>
+
+
+<div id="wrap">
+
+
+<div id="header">
+<h1>Hantos Norbert</h1>
+<h2>Tanársegéd</h2>
+</div>
+
+<div id="menu">
+<ul>
+<li><a href="http://people.inf.elte.hu/nhantos/index.html">Kezdőlap</a></li>
+<li><a href="http://people.inf.elte.hu/nhantos/grafika.html">Számítógépes Grafika 2015-2016/I</a></li>
+<li><a href="http://people.inf.elte.hu/nhantos/java.html">Programozási Nyelvek II (Java) 2014-2015/I</a></li>
+<li><a href="http://people.inf.elte.hu/nhantos/rolam.html">Rólam</a></li>
+</ul>
+</div>
+
+<div id="contentwrap"> 
+
+<div id="content">
+
+<p></p>
+<h2>Számítógépes Grafika gyakorlat 2015-16 / I</h2>
+<hr>
+<p><b>Kurzuskód:</b> IP-08aSZGG/1, IP-08aSZGG/2, IP-08aSZGG/3, IP-08aSZGG/4</p>
+<p><b>Helyszín (1):</b> péntek 8:15-9:45, D2-219 (Grafika labor)</p>
+<p><b>Helyszín (2):</b> péntek 10:15-11:45, D2-219 (Grafika labor)</p>
+<p><b>Helyszín (3):</b> csütörtök 8:15-9:45, D2-219 (Grafika labor)</p>
+<p><b>Helyszín (4):</b> csütörtök 10:15-11:45, D2-219 (Grafika labor)</p>
+<p><b>Fogadóóra:</b> szerda 11-12, péntek 12-13, D2-704</p>
+<p><b>Konzultáció:</b> szerda 12-14, csütörtök 12-14, D2-704</p>
+
+<hr>
+
+<h2>Órai anyagok</h2>
+
+<p>Az órához kapcsolódó anyagok megtalálhatóak a <a href="http://cg.elte.hu/">cg.elte.hu</a> és a <a href="http://cg.elte.hu/~bsc_cg/">cg.elte.hu/~bsc_cg</a> oldalakon. Kötelező olvasmány a <a href="http://cg.elte.hu/index.php/bsc-grafika-gyakorlatok">gyakorlati segédanyagok.</a></p>
+
+<hr>
+
+<h2>Követelmények</h2>
+
+<p>A gyakorlat során pontokat lehet és ajánlatos szerezni. Ezek:</p>
+
+<ul>
+<li>C++ felmérő: {0, 1, 2} pont</li>
+<li>Órai plusz-minuszok: {-1, 0, 1} pont 4 alkalommal</li>
+<li>Kisbeadandók: {-10, 0, 1, 2, 3, 4} pont 2 alkalommal</li>
+<li>Órai munka: {0, 1, ..., 8} pont</li>
+</ul>
+
+<p>
+A gyakorlat végső pontszáma -24 és 22 pont közé eshet.</p>
+
+<p>A vizsgaidőszak <b>első hetének csütörtökén és péntekén</b> (szabadon választható) <b>9 órától</b> kezdődően lesz egy félév végi, 4 órás géptermi nagyZH (körülbelül 40 pontos). A végső érdemjegy a nagyZH-n elért és a gyakorlatról hozott pontszámok összegétől függ. PótZH a vizsgaidőszak második hetének szerdáján 9-től lesz.</p>
+
+<p>Aki a gyakorlatot legalább 0 ponttal zárja, az <b>kiválthatja a félév végi nagyZH-t egy otthoni nagybeadandóval</b>. Erről bővebben lásd majd a kurzus honlapját.</p>
+
+<p><b>A gyakorlat látogatása kötelező.</b> Legfeljebb 3 hiányzás megengedett. 4-6 hiányzás esetén a kurzust legalább 3-asra kell teljesíteni. 7-9 hiányzás esetén legalább 4-esre, 10-12 hiányzás esetén a kurzust 5-ösre kell teljesíteni.</p>
+
+<hr>
+
+<h2>Hasznosságok</h2>
+
+<p>Itt található néhány, az órán eddig elhangzottakhoz kapcsolódó program.</p>
+
+<h4>Pattogó kép, futó ember animáció</h4>
+
+<img src="./Hantos Norbert_files/pattogo.png" alt="" width="300">
+
+<p>
+Az órán vett példa project bővített változata, amely három részből áll.
+</p>
+
+<ul>
+<li>Pattogó kép: ciklusonként 5 pixellel mozgatjuk a textúrát <tt>x</tt> és <tt>y</tt> irányú sebességvektornak megfelelően. Ha elértük a kép valamelyik szélét, irányt váltunk. Vigyázat: az <tt>SDL_Rect</tt>-nek az <tt>(x,y)</tt> koordinátája a téglalap bal felső sarka, ezért a vízszintes irányú mozgás szerint a kép határát a 0 és az <tt>ablak_szélessége-textúra_szélessége</tt> jelenti! (Függőlegesnél pedig a 0 és az <tt>ablak_magassága-textúra_magassága</tt>.)<br><br></li>
+<li>Futó ember (bal felső sarok): a textúrát sorfolytonosan bejárjuk. Ehhez egy <tt>timer</tt> változót veszünk igénybe, aminek az értéke folyamatosan nő úgy, hogy a 30 képkockán 3 mp alatt érjünk végig. Ezután <tt>timer</tt>-ből számoljuk ki, hányadik sorból és oszlopból kell kivágnunk (és a képernyőre rajzolnunk) egy képkockát.<br><br></li>
+<li>Futó ember (középen): hasonló az előzőhöz, csak interakcióval: a futó embert balra-jobbra tudjuk mozgatni a nyílbillentyűkkel. Képernyőhatáron túl nem tud futni. Csak akkor fut, ha nyomva tartjuk valamelyik nyílbillentyűt. Ehhez az eseménykezelés előtt felveszünk egy <tt>kurzorgomb_lenyomva</tt> boolean változót, ami igaz, ha lenyomtunk egy billentyűt (<tt>SDL_KEYDOWN</tt>), és hamis, ha felengedtük (<tt>SDL_KEYUP</tt>). Futást csak akkor animálunk, ha a változó értéke <tt>true</tt>. Balra haladáskor az ember iránya megfordul: a balra haladást úgy oldjuk meg, hogy egy másik textúrát töltünk be, ami az eredeti textúra tükrözöttje. Vigyázzunk: a képkockák sorfolytonos bejárásánál ekkor nem balról jobbra kell olvasnunk, hanem jobbról balra!</li>
+</ul>
+
+<p>
+<a href="http://people.inf.elte.hu/nhantos/GRAFIKA/Pattogo.zip">A project fájl letölthető innen.</a>
+</p>
+
+<h4>BlindPerm Game!</h4>
+
+<img src="./Hantos Norbert_files/blindperm.png" alt="" width="300">
+
+<p>
+<tt>SDL_Renderer</tt>-rel rajzolt játék, melyben a feladat 6 kevert számjegy kirakása "vakon". Kétféle keverés közül lehet választani, keverés után indul a stopper. Szóköz billentyűre a számok eltűnnek. Egérkattintással lehet kijelölni, hogy melyik két számjegy cseréljen helyet. A szóköz ismételt megnyomására a stopper megáll és a számjegyek láthatóvá válnak.
+</p>
+<p>
+Mennyi idő alatt tudsz kirakni egy egyciklusos, illetve egy uniform random keverést?
+</p>
+
+<p>
+Megjegyzés: A forráskód böngészését inkább mazochistábbaknak ajánlom; a project csak illusztárció mit tudunk már most készíteni némi kreatív munkával. Téglalap keret rajzoláshoz az <tt>SDL_RenderDrawRect()</tt> metódus használható (ugyanúgy működik, mint kitöltött téglalap esetében az <tt>SDL_RenderFillRect()</tt>). A szöveg és a számjegyek képként vannak betöltve. Próbáljuk ki, hogy a <tt>digits_other.png</tt>-t átnevezzük a program által használt <tt>digits.png</tt>-re.
+</p>
+
+<p>
+<a href="http://people.inf.elte.hu/nhantos/GRAFIKA/BlindPermGame.zip">A project fájl letölthető innen.</a>
+</p>
+
+<h4>Háromszögek és körlap</h4>
+
+<img src="./Hantos Norbert_files/korlap.png" alt="" width="300">
+
+<p>
+Nomen est omen. Interakció: a háromszögek száma sorra 1, 2, 3, 4 a megfelelő számbillentyű leütése után. Továbbá középre egy 0.5 sugarú körlapot rajzolunk ki (itt éppen 12 oldalú sokszöggel közelítve). A kódban <tt>N</tt> értékét változtatva ez állítható.
+</p>
+
+<p>
+Megjegyzés 1: a kódban statikus tömb helyett dinamikus <a href="http://www.cplusplus.com/reference/vector/vector/"><tt>Vector&lt;Vertex&gt;</tt></a> adattípust használunk, hogy for ciklussal egyszerűen tudjuk definiálni a körlap pontjait. Nagyon fontos a VBO és a VAO szempontjából, hogy akárcsak tömb esetén, a <tt>Vector</tt> elemei is egymás után következnek a RAM-ban!
+</p>
+
+<p>
+Megjegyzés 2: gondoljuk végig, hogy a körlap rajzolása miért éppen a <tt>glDrawArrays(GL_TRIANGLE_FAN, 12, N + 2);</tt> utasításal történik, miért ezek a paraméterei!
+</p>
+
+<p>
+<a href="http://people.inf.elte.hu/nhantos/GRAFIKA/Korlap.zip">A project fájl letölthető innen.</a> Csak NVidia kártyával működik (különben a színes háromszögek és körlapok fehéren jelennek meg). Ha nem NVidia kártyával futnak a projecteink, akkor helyette <a href="http://people.inf.elte.hu/nhantos/GRAFIKA/KorlapShader.zip">töltsük le ezt a projectet,</a> ami shadereket használ, és így már nem függünk a videokártya vertex-attribútum értelmezésétől. Ha a gyakorlaton még nem esett szó a shaderekről, ignoráljuk a kód shaderekre vonatkozó részét.
+</p>
+
+<h4>Mandelbrot halmaz</h4>
+
+<img src="./Hantos Norbert_files/mandelbrot.gif" alt="" width="300">
+
+<p>
+<a href="http://en.wikipedia.org/wiki/Mandelbrot_set">A Mandelbrot halmaz</a> kirajzolása fregmens shaderrel.</p>
+
+<p>Interakció: a nyílbillentyűkkel lehet mozogni 4 irányban, a <tt>w</tt> és az <tt>s</tt> gomb a nagyítás mértékét változtatja. Figyeljük meg, hogy ha teljesen ránagyítunk valamelyik részre (kódban <tt>5e-006</tt>-os szorzó a komplex számot reprezentáló vektor tagjain, vagyis 200,000-szeres nagyítás), pixelessé válik a kép. Ennek oka a <tt>float</tt> típus véges pontos számábrázolása!
+</p>
+
+<p>
+Megjegyzés: a kirajzolás és a színezés alapja az úgynevezett <a href="http://en.wikipedia.org/wiki/Mandelbrot_set#Escape_time_algorithm">Escape Time algoritmus</a>, aminek a lényege, hogy egy fregmens színét az határozza meg, hogy a fregmensnek megfelelő komplex szám magnitúdója hány iteráció után ér el egy küszöbértéket (a kódban ez 4). Ha a magnitúdó nem túl nagy még adott rögzített iterációszám után sem (kódban ez 500), akkor a fregmens a Mandelbrot-halmaz része és fekete színt kap; egyébként az iterációszámtól függően a kék valamelyik árnyalatára színezzük a fregmenst.
+</p>
+
+<p>
+<a href="http://people.inf.elte.hu/nhantos/GRAFIKA/MandelbrotInteractive.zip">A project fájl letölthető innen.</a>
+</p>
+
+<h4>Egy pontosabb Mandelbrot halmaz</h4>
+
+<img src="./Hantos Norbert_files/mandelbrot_double.gif" alt="" width="300">
+
+<p>
+Mandelbrot halmaz kirajzolása változtatható pontossággal.</p>
+
+<p><tt>Float</tt> típust használva nagyjából 1,000,000-szoros nagyítást érhetünk el, mielőtt a kép nagyon elkezd pixelesedni a túl kicsi számok gépi pontatlansága miatt. Nos, <tt>double</tt> típussal számolva már képesek vagyunk akár 100,000,000,000,000-szoros (százbilliószoros) nagyításra is!
+</p>
+
+<p>
+A program érdekessége, hogy <tt>float</tt> és <tt>double</tt> számolás között menet közben váltogathaunk az <tt>a</tt> és <tt>d</tt> gombokkal. Ezt úgy érjük el, hogy két shader programot hozunk létre azonos vertex shaderrel de különböző fregments shaderrel, és valójában futás közben a shader programokat cseréljük. Kód szinten a két shader megegyezik, csak az egyik <tt>float</tt>, a másik <tt>double</tt> típust használ a fregmensek pozíciójának számolásakor. (Természetesen mindez megoldható egyetlen shader programmal is, változók szintjén kezelve a pontosság kérdését; de így látunk példát shader programok futás közbeni cseréjére is.)</p>
+
+<p>Ugyancsak eltérés az eddigiekhez képest, hogy most a <tt>Vertex</tt> struktúránk egyetlen attribútumot tartalmaz, a pozíciót. Elvégre nincs értelme szín attribútumot felvennünk, ha úgysem használjuk. Figyeljük meg, hogy ehhez mit kellett módosítani a VAO/VBO és a shaderek kódrészében!</p>
+
+<p>
+Az előző Mandelbrot-projecthez képest extra interakció, hogy az iterációs küszöbérték (ami alapból 500) növelhető illetve csökkenthető az <tt>r</tt> és <tt>f</tt> gombokkal. Vegyük észre, hogy (különösen <tt>double</tt> számolás esetén) nagyobb iterációszám mellett sokkal szebbé, de lassabbá válik a programunk!
+</p>
+
+<p>
+Apró érdekesség, hogy a színezéshez változtosabb a színpaletta: az iteráció szám <a href="http://en.wikipedia.org/wiki/HSL_and_HSV">HSV színtérben</a> definiál egy színt (H = iteráció % 360, S = 1, V = 1), külön metódus kell az RGB értékekre konvertáláshoz. Nem triviális feladat, de <a href="http://en.wikipedia.org/wiki/HSL_and_HSV#Converting_to_RGB">megoldható.</a>
+</p>
+
+<p>Vezérlőgombok: <tt>a</tt> és <tt>d</tt> (shader programok közötti váltás), <tt>w</tt> és <tt>s</tt> (nagyítás), <tt>r</tt> és <tt>f</tt> (iterációs küszöbérték növelése / csökkentése 10-zel) nyílbillentyűk (mozgás / eltolás).
+</p>
+
+<p>
+Ez a project csak OpenGL 4.0-val (vagy afölött) működik! Ugyanis a <a href="http://en.wikipedia.org/wiki/OpenGL_Shading_Language">GLSL-ben</a> a <tt>double</tt> típust <a href="https://www.opengl.org/wiki/Data_Type_%28GLSL%29">csak később vezették be.</a></p>
+
+<p>
+<a href="http://people.inf.elte.hu/nhantos/GRAFIKA/MandelbrotDouble.zip">A project fájl letölthető innen.</a>
+</p>
+
+<h4>Piramisok kirajzolása transzformációkkal</h4>
+
+<img src="./Hantos Norbert_files/pyramids.gif" alt="" width="300">
+
+<p>A gyakorlat végén nézett példa egy változata.</p>
+
+<p>Hogyan kell háromszöglapokból térbeli alakzatokat építeni, hogyan kell belőlük több példányt létrehozni, és a legfontosabb: hogyan kell őket transzformálni a világban.
+</p>
+
+<p>A középső piramis 3 mp alatt tesz meg egy teljes kört az <tt>y</tt> tengely körül. Az <tt>N</tt> tagból álló (kezdetben <tt>N</tt> = 6) piramis-csoportot ciklusban rajzoljuk összetett transzformációk révén: először lekicsinyítjük őket az eredeti méretük felére <tt>x</tt> és <tt>z</tt> szerint, ezután a <tt>z</tt> tengely körül forgatjuk őket (5 mp alatt megtéve egy teljes kört). Majd az <tt>x</tt> tengely mentén eltoljuk őket 2 egységgel, és egy újabb forgatási transzformációval egyenletesen szétszórjuk a piramisokat (<tt>y</tt> tengely körüli forgatás 360-nak az N-ed részével).
+</p>
+
+<p>Vezérlőgombok: <tt>w</tt> és <tt>s</tt> gombokkal tudjuk növelni illetve csökkenteni a kisebb piramisok számát (1 és 50 között).</p>
+
+<p>
+<a href="http://people.inf.elte.hu/nhantos/GRAFIKA/Piramisok.zip">A project fájl letölthető innen.</a>
+</p>
+
+<h4>Tóruszok kirajzolása transzformációkkal</h4>
+
+<img src="./Hantos Norbert_files/toruszok.png" alt="" width="300">
+
+<p>Hogyan kell egy <a href="http://mathworld.wolfram.com/Torus.html">tóruszt parametrikusan kirajzolni</a>, ill. hogyan kell sok tóruszt transzformációkkal elhelyezni.</p>
+
+<p>Ebben a példában sok kicsi tórusz megy körbe a nagy tórusz telején egyensúlyozva, mint sok kicsi kerék. Ezt egy összetett világtranszformációval érjük el, skálázás, eltolás és forgatások révén. A világtranszformáció összesen 6 elemi transzformáció szorzatából áll elő. Általában egy világtranszformáció összeállításakor olyan kérdések merülhetnek fel, mint hogy mik legyenek az elemi transzformációk, milyen paraméterrel rendelkezzenek, illetve milyen sorrendben szorozzuk össze őket.
+</p>
+
+<p>A transzformációk könnyebb nyomonkövehetősége érdekében ebben a projectben egy interakció áll a rendelkezésünkre: az 1-es gomb lenyomására a kis tóruszok világtranszformációja csak 1 mátrixból áll, egy 1/8-ad méretűre zsugorító skálázásból. A 2-es gomb lenyomására az első két transzformáció szorzatából (zsugorítás és élre állítás, azaz 90 fokos forgatás) áll elő a világtranszformáció, a 3-as gomb lenyomására már három transzformáció hatását láthatjuk (a kis tórusz elkezd helyben forogni), és így tovább, egészen 6-ig. Így lépésről lépésre nyomon követhetjük, hogy milyen transzformációs lépésekből raktuk össze a jelenetet.</p>
+
+<p>Emlékeztetőül: a forgatás mindig egy origón átmenő tengely körül történik! Ezért ha valamilyen objektumra azt szeretnénk, hogy helyben forogjon, akkor az ezt megvalósító forgató mátrix helye a szorzásban az, amikor az objektumunk az origóban helyezkedik el. Ha már eltoltuk valahova az objektumunkat, akkor a forgatás hatására az objektum "odébbrepül". (Ebben a projectben mindkettőre van példa!)</p>
+
+<p>A <tt>GetUV()</tt> metódus megváltoztatásával bármilyen parametrikus felületet meg tudunk jeleníteni, azonban az implementáláskor ügyeljünk az alábbiakra:</p>
+<ul>
+<li>a megadott parametrikus leíráshoz képest fel kell-e cserélni az <tt>y</tt> és a <tt>z</tt> tengelyt (általában igen, a matematikai és a grafikai koordinátarendszerek eltérése miatt),<br><br></li>
+<li>milyen skálán futnak a paraméterek (<tt>u</tt>-t és <tt>v</tt>-t hogyan kell transzformálni),<br><br></li>
+<li>rendesen vagy kifordítva jelenik-e meg az alakzat (merre állnak a háromszögeink előlapjai).</li>
+</ul>
+
+<p>Gyakorláképp állítsunk elő <a href="http://mathworld.wolfram.com/Cylinder.html">hengerpalástot</a>!</p>
+
+<p>Ebben a projectben ezen felül egy extra érdekesség is szerepel: a világunkban (tehát a világ koordináta-rendszerben) szerepel egy piros, egy zöld, illetve egy kék vonal, amelyek rendre az <tt>x</tt>, <tt>y</tt> és <tt>z</tt> tengely pozitív tartományát mutatják nekünk. Ezt a következőképpen valósíthatjuk meg: a <tt>vert[]</tt> tömbbe 6 új vertexet veszünk fel (így a mérete persze nem <tt>(N+1)*(M+1)</tt>, hanem <tt>(N+1)*(M+1)+6)</tt>, ezek pedig sorban a következők:</p>
+
+<ul>
+<li>A T+0. vertex pozíciója <tt>(0,0,0)</tt>, színe piros,</li>
+<li>a T+1. vertex pozíciója <tt>(10,0,0)</tt>, színe piros,</li>
+<li>a T+2. vertex pozíciója <tt>(0,0,0)</tt>, színe zöld,</li>
+<li>a T+3. vertex pozíciója <tt>(0,10,0)</tt>, színe zöld,</li>
+<li>a T+4. vertex pozíciója <tt>(0,0,0)</tt>, színe kék,</li>
+<li>a T+5. vertex pozíciója <tt>(0,0,10)</tt>, színe kék.</li>
+</ul>
+
+<p>Ahol <tt>T = (N+1)*(M+1)</tt> a tóruszunkat alkotó vertekex száma. Ebből a 6 vertexből fogjuk képezni a 3 vonalunkat. A kirajzoláshoz <tt><a href="http://people.inf.elte.hu/nhantos/GRAFIKA/primitives.jpg">GL_LINES</a></tt>-t használunk, ami a megadott vertexekből páronként egy pixel vastag vonalat képez. Ezért ha az <tt>indices[]</tt> tömb legvégére a <tt>T+0, T+1, ..., T+5</tt> indexeket írjuk (így persze az <tt>indices</tt> mérete is 6-tal nő), akkor éppen azt kapjuk, hogy a két piros, a két kék és a két zöld vertexünket összekötve rajzolunk vonalakat, összesen hármat.</p>
+
+<p>A <tt>Render()</tt> függvényben két rajzolási utasítás szerepel (ha most eltekintünk a kis tóruszoktól): az első szerint a 0. indextől kezdve a következő <tt>T</tt> indexet figyelembe véve rajzoljon háromszögeket, hármasával véve az indexek által jelölt vertexeket (<tt>GL_TRIANGLES</tt>, ebből lesz a tórusz). A második szerint a <tt>T</tt>-edik indextől kezdve a következő 6 indexet figyelembe véve rajzoljon vonalakat, párosával véve az indexek által jelölt vertexeket (<tt>GL_LINES</tt>). Mivel ez utóbbi alakzat szintén identikus világtranszformációval rendelkezik (hiszen azt a shaderben nem írtuk felül, és utoljára az <tt>m_matWorld</tt> az egységmátrix volt), ezért a vonalaink éppen a világunk <tt>x</tt>, <tt>y</tt>, és <tt>z</tt> tengelyére fognak esni, az origótól a +10-es értékig meghúzva!</p>
+
+<p>Extraként nézzük meg a <tt>Render()</tt> végén szereplő "<tt>EXTRA!</tt>" kommenttel ellátott sort: mit fogunk látni, ha a kis tóruszok világtranszformációjával, cikluson belül ismét kiadjuk a vonalakra vonatkozó rajzolási utasítást?</p>
+
+<p>Interakció: 1, 2, ..., 6-os gomb (kis tóruszokra hatással lévő elemi transzformációk száma), fel-le nyílgombok (a kamera pozíciójának <tt>y</tt> értéke, azaz milyen magasra rakjuk a kamerát), balra-jobbra nyílgombok (a kamera az XZ síkon egy 15 sugarú kör vonalán mozgatható körbe, ennek a szögét tudjuk változtatni, azaz körbe tudjuk forgatni a kamerát a világunk körül). Indításkor a kamera a világban a <tt>(0, 0, 15)</tt> pontba lesz lehelyezve.</p>
+
+<p>
+<a href="http://people.inf.elte.hu/nhantos/GRAFIKA/Toruszok.zip">A project fájl letölthető innen.</a>
+</p>
+
+<h4>Tóruszok kirajzolása transzformációkkal - alternatív</h4>
+
+<img src="./Hantos Norbert_files/toruszok2.png" alt="" width="300">
+
+<p>Ez a project látványban nem különbözik az előzőtől, a különbség a mögötte húzódó geometriák kezelésében rejlik.</p>
+
+<p>Jogosan merülhet fel a kérdés, hogy mi van akkor, ha több geometriánk van? Dobáljunk mindent egyetlen <tt>vert[]</tt> tömbbe, ahogy eddig? Ebben az esetben könnyű belezavarodni az indexelésbe, hogy honnan kezdődik az egyik alakzatunk, és honnan a másik (lásd még: "Háromszögek és körlap" project).</p>
+
+<p>Egy elegánsabb megoldás, ha minden objektumhoz külön tömböt (vagy más adatszerkezetet) hozunk létre. Ekkor a rajzolási utasításainkat mindig a 0. indexú vertextől kezdhetjük. De hogyan tudunk a GPU-n több geometriát tárolni? A válasz: külön VBO-kban. Ekkor persze minden VBO-hoz tartozik egy VAO és egy index puffer, vagyis annyi VBO-VAO-IB hármasunk lesz, ahány geometriánk.</p>
+
+<p>Ebben a projectben két VBO, két VAO és két IB található. Az egyik felel a tóruszért, akinek a vertexei a <tt>vert_torus[]</tt> tömbben találhatóak (ez kerül a tóruszhoz tartozó VBO-ba), indexei a <tt>indices_torus[]</tt> tömbben szerepelnek (ez kerül a tóruszhoz tartozó IB-be). A vonalak vertexeit a <tt>vert_lines[]</tt> tömbben hoztuk létre (ezt másoljuk a vonalak VBO-jába), indexei a <tt>indices_lines[]</tt> tömbben szerepelnek (ezt pedig a vonalakhoz tartozó index pufferbe másoljuk). A két geometria esetén a két VAO ugyanúgy néz ki, mert mindkét geometriában a vertexek ugyanolyan attribútumokkal rendelkeznek. (De attól még külön-külön kell definiálnunk őket!)</p>
+
+<p>Rajzoláskor, a <tt>Render()</tt> függvényben a rajzolási folyamat így néz ki:</p>
+
+<ol>
+<li>Shader program bekapcsolása.</li>
+<li>A következő objektumra (pl. Objektum-X) vonatkozó világtranszformáció kiszámolása, frissítése a shader-ben.</li>
+<li>Objektum-X VAO-jának bekapcsolása (magával rántja a megfelelő VBO-t és IB-t).</li>
+<li>Objektum-X kirajzolása <tt>glDrawElements()</tt> függvényhívással.</li>
+<li>Objektum-X VAO-jának kikapcsolása.</li>
+<li>A következő objektumra (pl. Objektum-Y) vonatkozó világtranszformáció kiszámolása, frissítése a shader-ben.</li>
+<li>Objektum-Y VAO-jának bekapcsolása.</li>
+<li>Objektum-Y kirajzolása <tt>glDrawElements()</tt> függvényhívással.</li>
+<li>Objektum-Y VAO-jának kikapcsolása.</li>
+<li>...</li>
+<li>Shader program kikapcsolása.</li>
+</ol>
+
+<p>
+<a href="http://people.inf.elte.hu/nhantos/GRAFIKA/ToruszokMultigeo.zip">A project fájl letölthető innen.</a>
+</p>
+
+<h4>Áttűnéses textúrázás egy körlapra</h4>
+
+<img src="./Hantos Norbert_files/texturealter.gif" alt="" width="300">
+
+<p>Két különböző textúra ráfeszítése egy körlapra, áttűnéssel váltogatva.</p>
+
+<p>Ebben a példában két textúrát töltünk be, és 6 mp-ként váltogatunk a két textúra között. Egy adott fregmens színe <tt>(1-t)*egyik_textúra_pont + t*másik_textúra_pont</tt>, ahol <tt>t</tt> értéke időben (6 mp alatt) 0 és 1 között ingadozik. Mivel mind a két textúrából kell színadat a shader számára egy időben, ezért kettő textúra-mintavételezőt használunk (itt a nullás és az egyes sorszámút, azaz <tt>GL_TEXTURE0</tt>-t és <tt>GL_TEXTURE1</tt>-t).</p>
+
+<p>Extraként az egész objektuk forog az <tt>y</tt> tengely körül, 10 mp alatt ér körbe (világtranszformáció).
+</p>
+
+<p>Az objektum egy <tt>N</tt> sugarú körlap. A vertexeket egy <tt>vector</tt> adatszerkezetbe rakjuk bele (lásd "Háromszögek és körlap" project). Egy vertex lesz középen (nulladik), a többit (első, második, ..., N-1-edik) egy <tt>r</tt> = 2 sugarú körlap mentén szórjuk szét egyenletesen, <a href="http://www.mathopenref.com/coordparamcircle.html">a körlap parametrikus megadásának segítségével.</a>
+</p>
+
+<p>Ezzel <tt>N+1</tt> vertexet definiáltunk, ezek indexei <tt>0, 1, ..., N</tt>. Rajzoláshoz indexpuffert használunk, és a változatosság kedvéért a <tt>GL_TRIANGLES</tt> paraméterrel rajzolunk, vagyis a háromszögek indexei (a háromszögek körüljárási irányára is ügyelve):
+</p>
+
+<img src="./Hantos Norbert_files/textura_plan.png" alt="" width="300">
+
+<ul>
+<li>0, 1, 2, (első háromszög)</li>
+<li>0, 2, 3, (második háromszög)</li>
+<li>0, 3, 4, (harmadik háromszög)</li>
+<li>...,</li>
+<li>0, N-1, N, (N-1-edik háromszög)</li>
+<li>0, N, 1 (N-edik háromszög)</li>
+</ul>
+
+<p>Lásd a mellékelt ábrát, ahol fekete jelöli a vertexek indexeit, piros a háromszögeket.</p>
+
+<p>Persze egyszerűbb lenne, ha <tt>GL_TRIANGLE_FAN</tt>-t használnánk. (Házi feladat: módosítsuk ennek megfelelően  programot! Ne felejtsük el, hogy a rajzolásnál a rajzoláshoz használt vertexek darabszámát is módosítani kell!)</p>
+
+<p>A textúra a koordináták szerint a [0,1] x [0,1]-es négyzet, tehát ha a középső textúra-körlapot szeretnénk kivágni a mi körlapunkhoz, akkor a vertexek textúra-koordinátái egy 0.5 sugarú, (0.5, 0.5) középpontú körlap mentén helyezkednek el egyenletesen.
+</p>
+
+<p>Apró érdekesség, hogy a textúra-koordinátarendszerben az origó a bal alsó sarok, viszont a képet beolvasáskor felülről lefelé olvassuk (mert így van tárolva a képfájlban). Tehát alapesetben a textúránk fejjel lefelé jelenne meg. Ezt a problémát úgy küszöböljük ki, hogy egy vertexhez textúra-koordináta attribútumként nem a cos-sin összefüggéssel számolt <tt>(s,t)</tt> értékpárt adjuk meg, hanem az <tt>(s, 1-t)</tt> értékpárt. Alternatív megoldás, ha a fregmens shaderben módosítjuk a textúra-koordináták <tt>t</tt> értékét <tt>1-t</tt>-re.
+</p>
+
+<p>Interakció: jobb egérgombbal tudunk váltogatni kitöltött és drótvázas (vonalas) megjelenítés között. Bal egérgombbal ki-be tudjuk kapcsolni a hátlapok megjelenítését.
+</p>
+
+<p>
+<a href="http://people.inf.elte.hu/nhantos/GRAFIKA/Textura.zip">A project fájl letölthető innen.</a>
+</p>
+
+<h4>Sárkány</h4>
+
+<img src="./Hantos Norbert_files/dragon.gif" alt="" width="300">
+
+<p>Hogyan kell egy <tt>obj</tt> modellt betölteni, hogyan lehet megvalósítani a kamerakezelést és a megvilágítást.</p>
+
+<p>A <a href="http://cg.elte.hu/~bsc_cg/gyak/07/"><tt>01_Lights</tt> projecthez</a> képest extra elemek:</p>
+<ul>
+<li>mesh objektum betöltése,</li>
+<li>két különböző textúra használata (talaj + pikkelyek),</li>
+<li>kamerakezelés,</li>
+<li>fények,</li>
+<li>animáció és interakció.</li>
+</ul>
+
+<h5>A modell</h5>
+
+<p>
+A neten böngészve rengeteg <tt>obj</tt> modellt találhatunk, amit a színterünkbe töltve használni tudunk. Ez a sárkány például <tt>Ukrainian Ironbelly Dragon</tt> névre hallgat (<a href="http://harrypotter.wikia.com/wiki/Ukrainian_Ironbelly">az elnevezés innen ered</a>), és az eredeti <tt>obj</tt> forrás <a href="http://tf3dm.com/3d-model/dragon-13943.html">itt található.</a>
+
+Arra azonban ügyeljünk, hogy a mi kis programunk nincs felkészítve mindenre! Ha betölthető modellt keresünk, akkor a legjobb, ha az az alábbi kritériumoknak felel meg:
+</p>
+<ul>
+<li><tt>.obj</tt> kiterjesztésű, azaz <a href="http://en.wikipedia.org/wiki/Wavefront_.obj_file">Wavefront obj file</a> legyen.<br><br></li>
+<li>A modell csak háromszögekből álljon! Az általános <tt>obj</tt> modell lapjai bármilyen sík poligonok lehetnek (háromszögek, négyszögek, ötszögek, stb.), mi viszont csak háromszögeket kezelünk. Nézzük meg az <tt>obj</tt> fájlt egy szövegszerkesztővel: az <tt>f</tt> kezdetű sorok (<i>faces</i>) három oszlopból kell hogy álljanak (pl. <tt>f 113/123/12 11/11/98 32/21/10</tt>). Ha még egy számhármas vagy számkettes található az adott sorban, akkor az a sor négyszöget definiál. Ebben az esetben a betöltött objektum a mi esetünkben nagyon csúnyán fog megjelenni! (Hiányzó részek, rossz helyre pozícionált vertexek, stb.)<br><br></li>
+<li>Lehetőleg legyenek definiálva textúra koordináták (<tt>vt</tt> kezdetű sorok) és normálisok (<tt>vn</tt> kezdetű sorok). Ellenkező esetben nem fogjuk tudni textúrázni (definiálatlan színnel fog megjelenni, ha textúrát próbálunk ráhúzni), illetve nem fognak hatni rá a fények. Ha a lapokat definiáló <i>faces</i> sorokban számhármasok vannak, az már jó jel.<br><br></li>
+<li>A modell ne legyen túl nagy. Mi az egész objektumot átadjuk a GPU-nak, és nem használunk memóriakímélő trükköket. Ezért minél nagyobb a betöltendő modell, annál tovább tart a programunk elindítása. A 02_loadMesh projectben található <tt>Suzanne</tt> 507 vertexből és 968 háromszögből, ez a sárkány 11,081 vertexből és 20,068 háromszögből áll. (Érezhetően pár másodperccel többet kell várni a futtatás elején.) 40,000 vertexből álló modellnél nagyobbat ne nagyon próbáljunk betölteni, mert akkor már fél percet vagy többet is képes elszöszölni a gépünk, mire ténylegesen elindul a renderelés.<br><br></li>
+<li>Nem árt, ha ingyenes (sok modellért nem kevés pénzt képesek elkérni az alkotók!)<br><br></li>
+</ul>
+
+<p>Ha kiválasztottunk egy megfelelő modellt, vegyük figyelembe a saját koordináta-rendszerét! Nézzük meg az <tt>obj</tt> fájlban a <tt>v</tt> kezdetű sorokat (vertex pozíciók). Nagyságrendben milyen számok szerepelnek? <tt>Suzanne</tt> vertex koordinátái a [-1, -1, -1] x [1, 1, 1] egységkockában helyezkednek el. Viszont könnyen előfordulhat, hogy egy másik modell koordinátái a 100-as nagyságrendet is elérik. Ekkor ha egy az egyben (identikus világtranszformációval) töltjük be a modellt a világunkba, akkor (mivel a kamera a gyakorlaton nézett projectekben alig néhány egységnyire van az origótól), nem fogjuk látni a modellt, mert túl nagy, illetve a kamera az objektum belsejében lesz. Ilyenkor vagy zsugorítsuk le a modellt egy <tt>scale</tt> transzformációval, vagy helyezzük el messzebb a kamerát a világban!</p>
+
+<p>Ha <tt>obj</tt> után kutatunk, akkor általában kapunk mellé egy <tt>.mtl</tt> kiterjesztésű fájlt is. Ez az anyagtulajdonságait írja le a modellnek (ambiens, diffúz és spekuláris komponensek, csillanás intenzitása, stb.), sokszor a modell különböző részeire különböző értékeket definiálva. Ezzel a fájllal igazából nekünk nem kell foglalkoznunk (ha akarjuk persze, akkor a fregmens shaderben beállíthatunk hasonló értékeket). Ezen felül sokszor mellékelik nekünk a modell textúra-képét is. Ezt csak akkor tudjuk használni (legalábbis egyszerű módon), ha egyetlen képből áll. A kép orientációjára vigyázzunk! Lásd az "Áttűnéses textúrázás egy körlapra" projectet.</p>
+
+<p>Ebben a project fájlban például nem az eredeti sárkány-textúra kerül a modellre, hanem egy random talált pikkely-textúra, és a modell anyagtulajdonságait is más értékekre definiáltam.</p>
+
+<h5>Kamerakezelés</h5>
+
+<p>Az órán látott megoldás: <tt>w</tt> és <tt>s</tt> az előre-hátra mozgásért, <tt>a</tt> és <tt>d</tt> a balra-jobbra léptetésért, az egér pedig a nézeti irány változtatásáért felelős (a bal egérgombot nyomva tartva). Vegyük észre, hogy ha folyamatosan nyomva tartjuk például a <tt>w</tt> gombot, akkor a kamera lép egyet előre, megtorpan, és utána kezd el szép szabályosan előrefele úszni. Ennek oka, hogy az oprendszer a gombnyomás elején még "nem tudja eldönteni", hogy egyszeri vagy folyamatos gombnyomásról van szó. A gyakorlat honlapján található <a href="http://cg.elte.hu/~bsc_cg/gyak/08/">01_Middle project</a> ezt a "hibát" már nem tartalmazza: ott a kamera gomblenyomásra indul, felengedésre áll meg (hasonlóan ahhoz, ahogy mi itt a bal egérgomb nyomva tartását kezeljük). Aki szép kamerakezelést szeretne, az induljon ki a Middle projectből.
+
+</p><h5>Fények</h5>
+
+<p>Szintén a gyakorlaton látott megvalósítás, a <a href="https://en.wikipedia.org/wiki/Phong_reflection_model">Phong lokális illuminációs modell</a>. Az ambiens fény (szórt fény / többszörösen visszavert fény) által meghatározott szín csak a fény saját színétől és az objektum színétől függ. A diffúz fény intenzitása függ a beérkező fény irányától ( <tt>(1, -1, 1)</tt> irányvektor), és a fregmens normálvektorának bezárt szögétől, pontosabban annak koszinuszától is, ami egy 0 és 1 közé vágott szám (<tt>di</tt>, diffúz intenzitás). A spekuláris (csillanó) fény <tt>si</tt> intenzitása pedig a visszavert fény, valamint a fregmens pozíciójából a kamerába mutató vektor által bezárt szögtől, annak koszinuszától függ. Szintén [0-1] közé vágott szám, magas hatványra emelve, hogy a szög függvényében gyorsan csökkenjen. A kamera pozícióját uniform változóként adjuk oda a shadernek, és ezt CPU oldalról mindig frissítjük, hiszen képkockáról képkockára változhat!
+</p>
+
+<p>Ne feledjük, hogy a vertex shaderben mind a vertex pozícióját, mind a normálvektorát transzformálnunk kell a világtranszformációval, illetve annak invert transzponáltjával, mivel a fényeket a világunk saját koordinátarendszerében, és nem a modell(ek) saját koordinátarendszerében akarjuk számolni.</p>
+
+<p>A kódban egy apró változtatás történt: spekuláris komponenst csak akkor számolunk, ha a diffúz komponens intenzitása nem 0 (csak ott csillanhat a fregmens, ahol közvetlen fény is éri).</p>
+
+<p><u>Érdekesség:</u> A gyakorlaton és ebben a project fájlban is <i>irányfényforrás</i> szerepel, vagyis a fény "egy végtelen távoli pontból" érkezik, és a beeső fény szöge (irányvektora) minden fregmens esetén azonos. A <a href="http://cg.elte.hu/~bsc_cg/gyak/08/">01_Middle projectben</a> viszont <i>pontszerű fényforrás</i> lett definiálva: a fénynek pozíciója van, és egy adott fregmensre a beeső fény szögét (irányvektorát) a fregmens pozíciójából és a fényforrás pozíciójából tudjuk egy különbségképzéssel és normalizálással kiszámolni. Gondoljuk végig, hogy megjelenítésben és számolásban mi a különbség a két fényforrás között! (Találós kérdés: mi történik, ha a fényforrás pozíciója és a fregmens pozíciója éppen egybeesik?)
+</p>
+
+<p>A projectben az ambiens komponensben a fény gyenge fehér, az objektum tiszta fehér; a diffúz komponensben a fény erős fehér, az objektum kékes; a spekuláris komponensben a fény zöldes, az objektum tiszta fehér.</p>
+
+<h5>Animáció / interakció</h5>
+
+<p>A sárkány körberepüli a színteret (10 mp alatt megtéve egy teljes kört). A kamera változtatható (<tt>w</tt>, <tt>a</tt>, <tt>s</tt>, <tt>d</tt>, egér + bal gomb). A spekuláris komponens kitevője a <tt>q</tt> és <tt>e</tt> gombokkal változtatható 1 és 128 között. Az 1, 2, 3 gombokkal ki-be kapcsolhatóak az egyes fénykomponensek, vagyis sorban az ambiens, a diffúz és a spekuláris.
+</p>
+
+<p>
+<a href="http://people.inf.elte.hu/nhantos/GRAFIKA/Dragon.zip">A project fájl letölthető innen.</a>
+</p>
+
+<h4>MIDDLE - megvilágítás</h4>
+
+<img src="./Hantos Norbert_files/lights.gif" alt="" width="300">
+
+<p>A <a href="http://cg.elte.hu/~bsc_cg/gyak/08/">gyakorlati projectek</a> között található <tt>01_Middle.zip</tt>-ben megvalósított, megvilágítást szemléltető project.</p>
+
+<p>A Middle project részei:</p>
+
+<ul>
+<li>Talaj (négyzet geometria) létrehozása és kirajzolása</li>
+<li>Mesh objektum beolvasása és kirajzolása</li>
+<li>Pontszerű fényforrás (ambiens, diffúz és spekuláris komponensekkel)</li>
+<li>Kamerakezelés</li>
+</ul>
+
+<p>Ehhez képest az alábbi extrák kerültek még megvalósításra:</p>
+
+<ul>
+<li>Parametrikus felületek: gömb létrehozása és kirajzolása</li>
+<li>Csonkakúp palást létrehozása és kirajzolása</li>
+<li>Körlap (csonkakúp teteje) létrehozása és kirajzolása</li>
+<li>A pontszerű fényforrás pozíciójának folyamatos változtatása</li>
+<li>Egyéb interakciók</li>
+</ul>
+
+<img src="./Hantos Norbert_files/light_demo_csonkakup.png" alt="">
+
+<p>A kód magáért beszél. Az egyedüli trükkös rész a csonkakúp palást vertexeinek meghatározása. A vertexek pozíciói egy-egy XZ síkon fekvő körívet követnek, mégpedig úgy, hogy egy vertexet teszünk alulra (<tt>Y = 0</tt> magasság), egyet felülre (<tt>Y = h</tt> magasság, ahol h a csonkakúp magassága), a két körív pedig különböző sugarú; lásd a mellékelt ábrát. A vertexek indexelését szintén eszerint végezzük (első háromszög: 0, 1, 2, második háromszög: 1, 3, 2, harmadik háromszög: 2, 3, 4, negyedik háromszög: 3, 5, 4, stb.)</p>
+
+<img src="./Hantos Norbert_files/light_demo_csonkakup_normalis.png" alt="" width="250">
+
+<p>A kúppalást normálvektora sem olyan egyszerű, mint a például a talajnál: minden vertexhez egyéni normálvektor tartozik. Papíron kiszámolhatjuk, hogy az &#945; szöghöz tartozó vertex normálvektora <tt>(cos(&#945;),(r1-r0)/h, sin(&#945;) )</tt>, és csak ezt kell normalizálni (lásd a mellékelt ábrát).</p>
+
+<p>Természetesen a gömbünk esetén is meg kell adni a normálvektorokat, csakhogy egységsugarú gömb esetén ez nagyon egyszerű: az adott vertex pozícióhoz tartozó normálvektor éppen az az adott pozícióval ekvivalens irányvektor lesz.</p>
+
+<p>A pontszerű fényforrásunk pozíciója uniform, és cpp oldalról animációval változtatjuk. Ugyanebbe a pozícióba lerakunk egy pici gömböt is, a shaderben pedig beállítjuk (szintén uniform változó révén), hogy amikor ezt az objektumot rajzoljuk ki, akkor ne húzzon textúrát és ne számoljon fényeket; hanem minden fregmens színe legyen konstans sárga.</p>
+
+<p>Interakciók: kamera (WASD és egér), textúrázás ki/be kapcsolása (<tt>t</tt> gomb - ha nincs textúra, akkor minden fehér, kivéve a "napot", ami sárga), fények ki/be kapcsolása (<tt>l</tt> gomb), drótvázas és kitöltött megjelenítés közötti váltás (<tt>q</tt> gomb), az ambiens, diffúz és spekuláris fénykomponensek ki/be kapcsolása (7-es,8-as és 9-es gomb).</p>
+
+<p>
+<a href="http://people.inf.elte.hu/nhantos/MIDDLE/LIGHT_DEMO.zip">A project fájl letölthető innen.</a>
+</p>
+
+<h4>MIDDLE - normal mapping</h4>
+
+<img src="./Hantos Norbert_files/lights_normal.gif" alt="" width="300">
+
+<p>A fenti project kiegészítve normalmap-ek használatával (Bővebben a normal mappingről <a href="http://cg.elte.hu/~msc_cg/EA/05/EA06%20-%20Normal%20mapping.ppt"> lásd itt</a>). <b>Normalmap-ek használata nem része a kurzus standard anyagának</b>, ezért ezt a projectet csak azoknak ajánlom, akik mélyebben érdeklődnek a tárgy iránt. Nagybeadandóban szintén előfordulhat részfeladatként normal mapping.</p>
+
+<img src="./Hantos Norbert_files/bumpmapping.png" alt="" width="350">
+
+<p>Az alapötlet, hogy a normálisokat ha megváltoztatjuk, a fények számolásakor azt a hatást kelthetjük, mintha a felület nem egyenes lenne, lásd a mellékelt ábrát. Ez egyfajta <a href="https://en.wikipedia.org/wiki/Bump_mapping">Bump mapping</a> megvalósítás. A normálisok megváltoztatására vonatkozó információt a normalmap-ek tartalmazzák egyszerű textúra formájában: minden képpont RGB értéke valójában egy XYZ érték, mely azt fejezi ki, hogy egy (0,0,1) irányba álló normálist mire kéne megváltoztatni az adott pontban.</p>
+
+<p>Viszont a normálisaink nem feltétlen (0,0,1) irányba néznek a világ-koordináta rendszerben, hanem lényegében bármerre állhatnak. Ezért a fregmens shaderrel kiszámoltatjuk azt az <tt>R</tt> transzformációt, ami a (0,0,1) vektort az eredeti normálvektor irányába forgatná át; és ezt az <tt>R</tt> transzformációt alkalmazzuk a normalmap-ből kinyert normálvektoron. Így kapjuk meg az új normálvektorokat. (Nem a legelegánsabb megoldás, mert nagyon megdolgoztatja a fregmens shadert, de esetünkben ez a legegyszerűbb.)</p>
+
+<p>Extra interakció: <tt>n</tt> gombbal tudjuk ki/be kapcsolni a normalmap-ek használatát.</p>
+
+<p>
+<a href="http://people.inf.elte.hu/nhantos/MIDDLE/NORMAL_MAPPING.zip">A project fájl letölthető innen.</a>
+</p>
+
+<h4>MIDDLE - spotlámpa</h4>
+
+<img src="./Hantos Norbert_files/spotlight.gif" alt="" width="300">
+
+<p>A spotlámpa (elemlámpa, zseblámpa, reflektorfény, stb.) olyan pontszerű fényforrás, ami csak egy megadott irányba, egy adott szögtartományon belül világít. <b>Spotlámpa megvalósítása nem része a kurzus standard anyagának</b>, ezért ezt a projectet csak azoknak ajánlom, akik mélyebben érdeklődnek a tárgy iránt. Nagybeadandóban szintén előfordulhat részfeladatként spotlámpa.</p>
+
+<img src="./Hantos Norbert_files/spot_theory.png" alt="" width="300">
+
+<p>Az alapötlet, hogy a fényforrásunknak nem csak pozíciója, hanem iránya is van, illetve egy konstans értékre beállított szögtartománya. A fények számolásakor a diffúz és a spekuláris komponenst megszorozzuk egy 0-1 közötti számmal (<tt>spoti</tt>). Ha a fregmensre eső fénysugár iránya és a spotlámpa iránya közel azonos (mondjuk kisebb, mint a spotlámpa tulajdonságai között megadott szögtartomány), akkor a fregmenst éri a spotlámpa fénye, és ezért <tt>spoti</tt> értéke 1, vagy közel 1 (a mellékelt ábrán: ha az <tt>a</tt> szög kisebb mint a <tt>b</tt> szög, akkor <tt>spoti</tt> ~= 1). Ha a fenti két vektor által bezárt szög nagy, akkor a fregmens kiesik a spotlámpa fényzónájából, és <tt>spoti</tt> értéke közel 0.</p>
+
+<p>A projectben kétféle megvalósítás között váltogathatunk: az egyik szerint <tt>spoti</tt> értéke bináris: vagy éri fény a fregmenst, vagy nem. Ez éles fénykört fog okozni. Valósághűbb, ha az átmenet finomabb, például egy szigmoid függvényt követ: kisebb szög esetén közel 1, nagy szög esetén közel 0, a kettő között pedig egy hirtelen (de nem éles) átmenet található. A kódban megvalósított átmenetfüggvényt <a href="http://www.wolframalpha.com/input/?i=exp%28-64+*+a%29+%2F+%28exp%28-64+*+a%29+%2B+1%29+for+a+%3D+-1..1">itt nézhetjük meg</a>. Ekkor a fénykörünk sem olyan éles.</p>
+
+<p>Extraként elhelyeztünk egy kúpot a fényforrásunk pozíciójába, méghozzá úgy, hogy mindig a fényforrás irányának megfelelően álljon. Így vizualizálni tudjuk a "zseblámpánkat". Minden, a fényforrásunkat érintő transzformációt (pozícionálás, irányának elforgatása) a kúpra is érvényesítünk. A kúpra magára nem számolunk fényeket.</p>
+
+<p>Interakció: a kamerát a szokásos módon tudjuk változtatni. A nyílbillentyűkkel valamint az <tt>r</tt> és <tt>f</tt> gombokkal tudjuk pozícionálni a spotlámpánkat (magát a fényforrást, valamint az azt jelképező kúpot). Az <tt>i</tt> és a <tt>k</tt> gombokkal tudjuk változtatni a spotlámpa szögét az <tt>X</tt> tengely mentén, a <tt>j</tt> és az <tt>l</tt> gombokkal pedig a <tt>Z</tt> tengely mentén. A <tt>q</tt> gombbal tudunk váltani, hogy éles vagy szigmoid szerinti átmenettel számoljuk a spotlámpa fényerejét. Az egér jobb gombjával ki/be tudjuk kapcsolni a spotlámpát.</p>
+
+<p>
+<a href="http://people.inf.elte.hu/nhantos/MIDDLE/SPOTLIGHT.zip">A project fájl letölthető innen.</a>
+</p>
+
+<h4>MIDDLE - parametrikus felületek normálisai</h4>
+
+<img src="./Hantos Norbert_files/surface.gif" alt="" width="300">
+
+<p><b>Ez a project szintén nem része a kurzus standard anyagának,</b> bár attól még tanulságos lehet belenézni.</p>
+
+<p>A "MIDDLE - megvilágítás" projectben láthattuk, hogy bizonyos alakzatoknak nem triviális megadni a normálvektorait. Mi a helyzet, ha valami bonyolultabb felületet szeretnénk kirajzolni? Ilyenkor meglehetősen nehéz papíron kiszámolgatni a normálvektorokat... Két lehetőségünk van:</p>
+
+<img src="./Hantos Norbert_files/surfacenormals.png" alt="" width="200">
+
+<ol>
+<li>Minden háromszöget külön vertex-hármasból hozunk létre, és az egy háromszöghöz tartozó vertexek normálvektorai megegyeznek. A normálvektorokat a háromszög vertexpozíciói alapján ki tudjuk számolni: három vertexpozíció meghatároz egy síkot, és az arra állított <a href="https://en.wikipedia.org/wiki/Plane_(geometry)#Method_3">merőleges vektor</a> (normalizálás után) lesz a három vertex normálvektora.<br><br></li>
+<li>A felületet leíró parametrikus függvény segítségével minden vertexhez kiszámoltatjuk a felület adott pontjába állított normálisát.<br></li>
+</ol>
+
+<img src="./Hantos Norbert_files/normals_example.jpg" alt="" width="300">
+
+<p>A kétféle megoldás eltérő jellegét szemléltetik a mellékelt ábrák. Mint azt a későbbiekben látni fogjuk, OpenSceneGraph-ban az előbbi megoldást fogjuk megvalósítani (azt könnyebb számolni). Ebben a projectben az utóbbi megoldás szerepel: mivel a felületünket parametrikus módon adjuk meg, így a függvényünk eleve adott a már ismert <tt>GetUV()</tt> eljárásban; ezt jelöljük <tt>F(u,v)</tt>-vel.</p>
+
+<img src="./Hantos Norbert_files/partials.png" alt="" width="300">
+
+<p>A kérdés már csak az, hogyan tudunk egy <tt>F(u,v)</tt> parametrikus függvénynek megadni a normálisát az <tt>(u,v)</tt> pontban? Nos, egy lehetséges megoldás, ha vesszük az <tt>u</tt> és <tt>v</tt> irány szerint vett parciális deriváltakat, <tt>dF(u,v)/du</tt>-t és <tt>dF(u,v)/dv</tt>-t (az egyszerűség kedvéért <tt>du</tt> és <tt>dv</tt>): ezek ugyanis az <tt>u</tt> és <tt>v</tt> irányba vett érintőegyenest definiálják, azaz együttesen meghatározzák az <tt>F(u,v)</tt> függvény érintősíkját az <tt>(u,v)</tt> pontban! Tehát már csak a <tt>du</tt> és <tt>dv</tt> vektorokra merőleges vektort kell megadnunk, amire a <a href="https://en.wikipedia.org/wiki/Cross_product">keresztszorzat</a> éppen megfelelő. Az eredmény egy normalizálás után maga a normálvektor.</p>
+
+<p>Például szeretnénk tóruszt rajzolni. A tórusz <a href="http://mathworld.wolfram.com/Torus.html">paraméteres alakja</a> az alábbi:</p>
+
+<p><tt>F(u,v) = ( (c+a*cos(v))*cos(u), a*sin(v), (c+a*cos(v))*sin(u) )</tt></p>
+
+<p>Azaz minden <tt>(u,v)</tt> paraméterpárhoz tartozó vertex pozíciója a fenti képlet szerint áll elő. És mi lesz az <tt>(u,v)</tt> paraméterpárhoz tartozó vertex normálvektora? Számoljuk ki <tt>du</tt>-t és <tt>dv</tt>-t, amik a fenti <tt>F(u,v)</tt> függvény <tt>u</tt> és <tt>v</tt> szerinti parciális deriváltjai (azaz az <tt>x</tt>, <tt>y</tt> és <tt>z</tt> komponenseket rendre deriváljuk <tt>u</tt> illetve <tt>v</tt> változó szerint):</p>
+
+<p><tt>du = ( (c+a*cos(v))*-sin(u), 0, (c+a*cos(v))*cos(u) )</tt></p>
+<p><tt>dv = ( a*-sin(v)*cos(u), a*cos(v), a*-sin(v)*sin(u) )</tt></p>
+
+<p>Az <tt>(u,v)</tt> paraméterpárhoz tartozó normálvektor tehát</p>
+
+<p><tt>n(u,v) = normalize(dv x du)</tt>.</p>
+
+<p>Ebben a projectfájlban néhány paraméteres függvénnyel megadott alakzat implementációja található. A vertexek pozícióit a <tt>GetUV()</tt> eljárás, normálvektorait a <tt>GetUV_normals()</tt> eljárás adja meg; ez utóbbit "kézzel" adjuk meg, azaz a parciális deriváltakat mi már kiszámoltuk (papíron, vagy külső program segítségével), és itt csak felhasználjuk őket a normálvektorok megadásához. A <tt>MyApp.h</tt>-ban található egy <tt>shape_id</tt> nevű változó, amit 1 és 6 közötti számra állíthatunk, így váltogathatunk az alakzatok között - természetesen a megfelelő felülethez megfelelő normálvektorokat számolva. Próbáljuk ki mit kapunk, ha minden normálvektort a (0, 1, 0)-ra állítunk! Ugye milyen furán lesz megvilágítva a felület?</p>
+
+<p>Sajnos mivel az alakzatot a <tt>CMyApp::Init()</tt>-ben állítjuk elő és adjuk oda a GPU-nak, így (legalábbis jelenlegi ismereteinkkel) nincs lehetőség futás közben váltogatni az alakzataink között.</p>
+
+<p>A kezdőképen a <a href="https://en.wikipedia.org/wiki/Trefoil_knot">trefoil csomó</a> látható. Ennek elég komplikált a parametrikus leírása - ilyenkor bátran deriváltassunk egy <a href="https://www.wolframalpha.com/examples/Derivatives.html">külső programmal</a>, ha nem akarunk magunk megszenvedni vele...</p>
+
+<p>Egy pontszerű fényforrás köröz a magasban, hogy kicsit érdekesebb legyen a látványvilág. Interakciók: kamerakezelés, drótvázas megjelenítés ki/be kapcsolása (<tt>q</tt> gomb), textúra ki/be kapcsolása (<tt>t</tt> gomb). Ha nem textúrázunk, akkor minden fregmens alapszínét fehérnek vesszük, és erre számolunk fényeket.</p>
+
+<p>
+<a href="http://people.inf.elte.hu/nhantos/MIDDLE/SURFACES.zip">A project fájl letölthető innen.</a>
+</p>
+
+<h4>MIDDLE - parametrikus felületek normálisai vizualizált normálvektorokkal</h4>
+
+<img src="./Hantos Norbert_files/surface_normals.gif" alt="" width="300">
+
+<p>Megegyezik az előző projecttel annyi kiegészítéssel, hogy most az egyes felületek normálvektorait is látjuk zöld vonalak képében.</p>
+
+<p>Eredetileg a felületünk <tt>P</tt> darab pontból (<tt>P = (N+1)*(M+1)</tt>) áll, az indexeknél pedig <tt>K</tt> darab index szerepel (<tt>K = 6*N*M</tt>, mivel <tt>N*M</tt> különálló négyzetből rakjuk össze a felületet GL_TRIANGLES-szel).</p>
+
+<p>A pozíciók listáját kibővítjük újabb <tt>P</tt> darab ponttal, mégpedig úgy, hogy az <tt>i.</tt> vertex pozíciójához, <tt>P(i)</tt>-hez hozzáadjuk az <tt>i.</tt> pozícióhoz tartozó <tt>N(i)</tt> normálvektort; azaz eltoljuk vele. A leendő <tt>i.</tt> zöld vonalunk egyik végpontja tehát <tt>P(i)</tt>-ben van, a másik pontja pedig <tt>P(i) + N(i)</tt>-ben van.</p>
+
+<p>Az indexek listájában pedig nem csinálunk mást, mint felveszünk további <tt>2*P</tt> indexet a lista végére: az <tt>i.</tt> vertex indexét (aki a <tt>P(i)</tt> pozíción van) és az <tt>i.</tt> vertexhez tartozó, normálvektorral eltolt vertex indexét (aki a <tt>P(i) + N(i)</tt> pozíción van). Kirajzoláskor külön kirajzoljuk a felületet: 0. indextől rajzolunk GL_TRIANGLES-t <tt>K</tt> darab indexet használva; és külön a vonalakat: <tt>K.</tt> indextől GL_LINES-t <tt>2*P</tt> indexet használva. A <a href="http://www.glprogramming.com/red/images/Image34.gif">GL_LINES</a> gondoskodik róla, hogy az egymást követő indexpárok vonalakat alkossanak.</p>
+
+<p>Mivel a vonalakra nem szeretnénk se textúrát, se fényeket, a shadernél egy uniform változót használunk arra, hogy a vonalak rajzolásánál konstans zöld színt használjon a fregmensek színezéséhez.</p>
+
+<p>Apró megjegyzés, hogy a kódvan valójában <tt>P(i) + 0.2*N(i)</tt> szerepel, vagyis a vonalaink nem egységhosszúak lesznek, hanem valójában csak 0.2 egység hosszúak. Ennek pusztán esztétikai okai vannak, hogy a felület ne vesszen el a rengeteg zöldben...</p>
+
+<p>
+<a href="http://people.inf.elte.hu/nhantos/MIDDLE/SURFACES_NORMALS.zip">A project fájl letölthető innen.</a>
+</p>
+
+<h4>MIDDLE - fénykard</h4>
+
+<img src="./Hantos Norbert_files/lightsaber.gif" alt="" width="300">
+
+<p><a href="https://en.wikipedia.org/wiki/Lightsaber">Fénykard</a>, aminek a pengéje világít és vibrál. Ez a project több dologra mutat példát:</p>
+
+<ul>
+<li>henger geometria megalkotása,</li>
+<li>egyszerre több fényforrás megvalósítása a shaderben,</li>
+<li>átlátszó objektumok rajzolása.</li>
+</ul>
+
+<p><b>Átlátszó objektumok megvalósítása nem része a kurzus standard anyagának,</b> de akit érdekel, az a kódban megtalálja a módját. Nagyon rövid és nagyon egyszerű - persze akárcsak a fénymodellünknél, itt is megvan az egyszerűség ára, de az átlátszóság általános problémáitól most eltekintünk.</p>
+
+<p>Ha szeretnénk egy objektumot átlátszóvá tenni, akkor tegyük a következőket:</p>
+
+<ol>
+<li>Az átlátszó objektumok kirajzolását tegyük a <tt>Render()</tt> legvégére, azaz egy rajzolási cikluson belül ezek legyenek az utoljára kirajzolandó alakzatok. (Ennek okát itt nem részletezném.)<br><br></li>
+<li>Az objektum kirajzolása előtt kapcsoljuk be a hátlapokat (logikus: átlátszó objektumnak látjuk a hátlapjait is...)<br><br></li>
+<li>Az objektum kirajzolása előtt <a href="https://www.opengl.org/wiki/Blending">kapcsoljuk be a GL_BLEND-et.</a> Innentől kezdve, ha két fregmens azonos pixelre esne, akkor az OpenGL összekeveri a fregmensek színét az alpha (átlátszatlanság) értékük szerint ahelyett, hogy a kamerához közelebbi felülírná a másikat. Igazából ez fogja okozni az "átlátszóság" érzetét. A keveréshez tartozik néhány további beállítás is, például a <a href="https://www.opengl.org/sdk/docs/man/html/glBlendFunc.xhtml"><tt>glBlendFunc()</tt></a>.<br><br></li>
+<li>Rajzoljuk ki az objektumot úgy, hogy a színének az alpha csatornáját 0 és 1 közé állítjuk. 0 esetében teljesen átlátszó, 1 esetében teljesen átlátszatlan. Ha számolunk fényeket, akkor ezt megtehetjük például úgy, hogy a fregmens shaderben az anyagjellemzőt leíró szín-vektorokat módosítjuk.<br><br></li>
+<li>Kapcsoljuk ki a GL_BLEND-et és engedélezzük újra a hátlapeldobást.<br></li>
+</ol>
+
+<img src="./Hantos Norbert_files/saber_blade_anim.gif" alt="">
+
+<p>A fénykard vibráló pengéjének az alapötlete, hogy a pengét két hengerből illesztjük össze: a belső henger fix színű és méretű, a külső henger pedig fix színű, de átlátszó, illetve a mérete is folyamatosan változik egy méretező transzformáció révén. Ezen felül az átlátszatlanságának mértékét is folyamatosan változtatjuk.</p>
+
+<p>A henger a modell-koordinátarendszerben egy egység sugarú, egység magas, <tt>XZ</tt> síkon álló henger, amelynek a közepe van az origóban (azaz az alsó lapja <tt>Y = -0.5</tt>, felső lapja <tt>Y = 0.5</tt> magasságban fekszik). A hengermodellt hasonlóan raktuk össze, mint a "MIDDLE - megvilágítás" projectben található csonkakúpot: a palástnál egy vertex van alul, egy felül, a normálektorok kifelé mutatnak (a normálvektorok <tt>y</tt> értéke 0, mivel a henger fala egyenesen áll). A teljes textúrát ráfeszítjük a hengerpalástra: az alsó vertexek a textúra bal alsó sarokától a jobb alsó sarokáig, a felső vertexek a textúra bal felső saroktól a jobb felső sarkáig kapják a textúrakoordinátákat. A felső és az alsó lap két külön definiált körlap, a normálvektorok felfelé illetve lefelé állnak, textúrakoordinátáik szerint a textúra közepéből vágunk ki egy körlapot (0.5 sugarú, (0.5,0.5) középpontú kör).</p>
+
+<img src="./Hantos Norbert_files/saber_construction.png" alt="" width="300">
+
+<p>A hengerből három példányt rajzolunk ki (lásd a mellékelt ábra): a markolat egy 0.2 sugarú, 2 magas henger, és a teteje van az origóban. A penge két részből áll: a belső henger egy 0.2 sugarú, 8 magas henger, az alja éppen illeszkedik a markolat-hengerhez. A külső henger átlátszó, a sugara és az átlátszósága periodikusan változik: 100 ms alatt a sugár 0.21 és 0.35 között, az átlátszatlansága 0.7 és 0.3 között ingadozik. A magassága 8.01 (vegyük észre, hogy mindig kicsit nagyobb, mint a belső henger, hogy ne érjenek össze).</p>
+
+<p>A pengéhez tartozik egy fényforrás is, azonban a jelenlegi ismereteinkkel "fénycsövet" nem tudunk modellezni. Helyette azt a trükköt alkalmazzuk, hogy a cső mentén több pontszerű fényforrást rakunk le, ebben az esetben hármat: egyet a penge alsó részéhez ((0, 0, 0) pozíció), egyet középre ((0, 4, 0) pozíció), egyet pedig a felső részéhez ((0, 8, 0) pozíció). A fényforrásokat a fregmens shaderben modellezük, azonban cpp oldalon folyamatosan változtatjuk a pozícióikat, hogy együtt mozogjanak a pengével.</p>
+
+<p>Vagyis ha szeretnénk az egész fénykardot mozgatni, akkor a fenti összeállítás után mindegyik komponensre ugyanazt a transzformációt kell alkalmaznunk: a markolatra, a belső pengére, a külső pengére, és a három fényforrás pozíciójára is.</p>
+
+<p>A jelenetben összesen négy fényforrásunk van: a "nap" (egy irányfényforrás, ami (-1, -1, -1) irányba mutat), valamint három pontszerű fényforrás. Több fényforrás esetén továbbra is ambiens komponensünk van, hiszen az forrásfüggetlen, de diffúz és spekuláris komponensből annyi van, ahány fényforrásunk. A fregmens végső színe tehát <tt>(ambient + diffuse1 + specular1 + diffuse2 + specular2 + ... + diffuseN + specularN) * texture_color</tt>. Az egyes komponensek kiszámolása ugyanúgy zajlik, ahogy tanultuk.</p>
+
+<p>Irányfényforrás esetén a beérkező fény szöge triviális, pontszerű fényforrás esetén pedig fregmensenként eltérő, de ezt könnyedén megkaphatjuk a <tt>normalize(fregmens_pozíciója - fényforrás_pozíciója)</tt> számítással (bár vegyük észre, hogy a Middle project fregmens shaderjében éppen ennek a -1-szerese található, <tt>toLight</tt> néven).</p>
+
+<p>A penge két részére nem akarunk fényeket számolni (elvégre ők maguk a "fényforrások"), helyette mindig konstans színt kapnak; ebben az esetben a diffúz anyagjellemzőjük által definiált színt.</p>
+
+<p>Interakció: kamerakezelés, valamint a fénykard (és persze vele a három pontszerű fényforrás) pozícionálható három irányban a nyílbillentyűk, valamint az <tt>r</tt> és <tt>f</tt> gombok segítségével. Ha közel visszük a fénykardot a falhoz, észre lehet venni a "csalást" a három pontszerű fényforrással.</p>
+
+<p>
+<a href="http://people.inf.elte.hu/nhantos/MIDDLE/LIGHTSABER.zip">A project fájl letölthető innen.</a>
+</p>
+
+<h4>Tehén szeánsz (OpenSceneGraph)</h4>
+
+<img src="./Hantos Norbert_files/cows.png" alt="" width="300">
+
+<p>
+Egy súlyzó és <tt>N = 10</tt> tehén kirajzolása OpenSceneGraph-ban.</p>
+
+<p>A jelenethez <a href="http://people.inf.elte.hu/nhantos/GRAFIKA/szintergraf.png">az alábbi színtérgráfot</a> építjük fel. Az ábrán feketével vannak jelölve a gráfot alkotó elemek nevei, pirossal a típusai. Kékkel jelöltem a csoportcsúcsokat illetve a kirajzolható elemeket tartalmazó levélcsúcsokat.
+</p>
+
+<p>A gömb geode-k előtti transzformációs csúcsok (<tt>trafoBal</tt> és <tt>trafoJobb</tt>) egy-egy eltolás transzformációt tartalmaznak, az <tt>x</tt> tengelyen -5 ill. +5 értékkel. Így a gömbök középpontja egybeesik a rúd két végével; mivel a rúd 10 egység hosszú az <tt>x</tt> tengely mentén.
+</p>
+
+<p>A tehén modell előtti <tt>t</tt> transzformációkat ciklusban hozzuk létre és kötjük össze a modellel illetve a jelenetet összefogó <tt>tehenGroup</tt> csoportcsúccsal. Mindegyik transzformációs csúcs egy összetett transzformációt tartalmaz, ami három mátrix szorzata: skálázás, eltolás és forgatás. A skálázás mértéke 0.5-től 2-ig változik a ciklusváltozó függvényében (vagyis a tehenek az eredeti méretüknek a felétől növekszenek a kétszereséig), az eltolás konstans, a forgatás mértéke pedig ciklusváltozótól függ.
+</p>
+
+<p>Vegyük észre, hogy ellentétben az OpenGL-el, itt:
+</p>
+
+<ul>
+<li>Sok adattípusnak más a neve, de (majdnem) ugyanaz a funkciója és a paraméterezése. Például az eltolás transzformáció OpenGL-ben <tt>glm::translate&lt;float&gt;(x, y, z)</tt> volt, OpenSceneGraph-ban <tt>osg::Matrix::translate(x, y, z)</tt>.<br><br></li>
+<li>A mátrixok szorzása balról jobbra történik, vagyis előbb skálázunk, majd eltolunk, és utána forgatunk: S*T*R (OpenGL-ben ugyanehhez a hatáshoz a <tt>world</tt> transzformáció megadásakor a sorrend R*T*S lenne).<br><br></li>
+<li>Forgatómátrix esetén a forgatás szögét radiánban kell megadni (OpenGL-ben fokban).<br><br></li>
+<li>A kamera úgy néz a jelenetre, hogy a <tt>z</tt> tengely néz felfelé. Vagyis a tehén modell alapból az XY síkon áll (lásd a mellékelt ábrát). Ezért a forgatást a <tt>z</tt> tengely körül végezzük. OpenGL-ben általában úgy helyezzük el a kamerát, hogy az <tt>y</tt> tengely néz felfelé. Ettől persze a két koordináta-rendszer megegyezik, csupán más szemszögből nézünk a világra! (Ha mondjuk OpenGL-be töltenénk be tehenet, ott is az XY síkon állna - más kérdés, hogy mi OpenGL-ben az XZ síkot szoktuk meg talajnak, és ebben az esetben a tehén az oldalán feküdne.)</li>
+</ul>
+
+<img src="./Hantos Norbert_files/cow.png" alt="" width="200">
+
+<p>Házi feladat: hozzunk létre két transzformációs csúcsot <tt>trafoFel</tt> és <tt>trafoLe</tt> néven! Mindegyik a <tt>z</tt> tengely menti eltolást tartalmazzon, +5 ill. -5 értékekkel. A színtérgráfban a <tt>root -&gt; sulyzoGroup</tt> élt cseréljük le <tt>root -&gt; trafoFel -&gt; sulyzoGroup</tt> és <tt>root -&gt; trafoLe -&gt; sulyzoGroup</tt> élekkel! Mi fog történni? Gondoljuk végig miért!
+</p>
+
+<p>
+<a href="http://people.inf.elte.hu/nhantos/GRAFIKA/OSG_COWS/main.cpp">A forrásfájl letölthető innen.</a>
+</p>
+
+</div>
+
+<div id="sidebar">
+
+<h3>Tantárgy infók</h3>
+<ul>
+<li><a href="http://cg.elte.hu/">Grafika labor</a></li>
+<li><a href="http://cg.elte.hu/~bsc_cg/">Órai anyagok</a></li>
+<li><a href="http://cg.elte.hu/index.php/bsc-grafika-gyakorlatok">Gyakorlati segédanyagok</a></li>
+<li><a href="https://docs.google.com/spreadsheets/d/1EueoFzvAO9k_QQZNmPB9NszupOWv2-3br6bBmxtO0Q8/">Grafika órarend</a></li>
+</ul>
+
+</div>
+
+<div style="clear: both;"> </div>
+
+</div>
+
+<div id="bottom"> </div>
+
+<div id="footer">
+<p>Design by <a href="http://www.threestonemedia.com/">SEO Help</a> and <a href="http://www.geekbusiness.com/">Online Advertising Revenue</a></p>
+</div>
+
+</div>
+
+
+
+</body></html>
